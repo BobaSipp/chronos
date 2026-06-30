@@ -1,5 +1,8 @@
 # frozen_string_literal: true
 
+require "io/console"
+require "English"
+
 require_relative "chronos/version"
 require_relative "chronos/ansi"
 require_relative "chronos/data"
