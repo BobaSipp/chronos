@@ -7,13 +7,22 @@ repository's commit activity. No external dependencies, no bundler, no fuss.
 
 ## Installation
 
-### Via RubyGems (recommended)
+### Via GitHub Packages
 
 ```bash
+# Add GitHub Packages as a gem source
+gem sources --add https://rubygems.pkg.github.com/BobaSipp
+
+# Install
 gem install chronos
 ```
 
-Then run `chronos` from any Git repository.
+> Requires a GitHub [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) with `read:packages` scope. Create `~/.gem/credentials`:
+> ```
+> ---
+> :github: Bearer YOUR_TOKEN
+> ```
+> Then `chmod 0600 ~/.gem/credentials`.
 
 ### From source
 
