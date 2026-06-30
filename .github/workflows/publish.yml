@@ -26,7 +26,9 @@ jobs:
         run: |
           ruby -e '
             require "fileutils"
-            path = File.expand_path("~/.gem/credentials")
+            dir = File.expand_path("~/.gem")
+            FileUtils.mkdir_p(dir)
+            path = File.join(dir, "credentials")
             File.write(path, "---\n:github: Bearer #{ARGV[0]}\n")
             File.chmod(0600, path)
           ' "${{ secrets.GITHUB_TOKEN }}"
