@@ -20,13 +20,17 @@
 
     <h2>Prerequisites</h2>
     <ul>
-      <li><strong>Ruby</strong> (MRI 2.5+) &mdash; <a href="https://www.ruby-lang.org/">ruby-lang.org</a></li>
+      <li><strong>Ruby</strong> (MRI 2.7+) &mdash; <a href="https://www.ruby-lang.org/">ruby-lang.org</a></li>
       <li><strong>Git</strong> &mdash; any version</li>
     </ul>
 
     <p>No external gems are required. Chronos uses only Ruby's standard library.</p>
 
-    <h2>Setup</h2>
+    <h2>Install via RubyGems (recommended)</h2>
+    <pre><code>gem install chronos</code></pre>
+    <p>After installation, run <code>chronos</code> from any Git repository directory.</p>
+
+    <h2>Build from source</h2>
     <ol>
       <li>
         <strong>Clone the repo</strong>
@@ -34,18 +38,22 @@
 cd chronos</code></pre>
       </li>
       <li>
-        <strong>Verify Ruby</strong>
-        <pre><code>ruby --version</code></pre>
-      </li>
-      <li>
-        <strong>Run it</strong>
-        <pre><code>ruby chronos.rb --help</code></pre>
+        <strong>Build and install the gem</strong>
+        <pre><code>gem build chronos.gemspec
+gem install chronos-*.gem</code></pre>
       </li>
     </ol>
 
+    <h2>Run without installing</h2>
+    <pre><code>ruby bin/chronos --help</code></pre>
+
     <h2>Updating</h2>
+    <pre><code>gem update chronos</code></pre>
+    <p>Or if installed from source:</p>
     <pre><code>cd chronos
-git pull</code></pre>
+git pull
+gem build chronos.gemspec
+gem install chronos-*.gem</code></pre>
   </div>
 </body>
 </html>

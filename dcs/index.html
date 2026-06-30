@@ -25,17 +25,17 @@
     </p>
 
     <h2>Quick Start</h2>
-    <pre><code>git clone https://github.com/BobaSipp/chronos.git
-cd chronos
-ruby chronos.rb</code></pre>
+    <pre><code>gem install chronos
+cd my-git-repo
+chronos</code></pre>
 
     <p>
-      Run it from any Git repository. Switch tabs with <code>&larr;</code> and <code>&rarr;</code>,
-      scroll with <code>&uarr;</code> and <code>&darr;</code>, quit with <code>q</code>.
+      Run it from any Git repository. Press <code>Tab</code> to cycle tabs,
+      <code>j</code>/<code>k</code> to scroll, <code>q</code> to quit.
     </p>
 
     <h3>Example Output</h3>
-    <pre><code>Chronos v0.3.0 &mdash; Git Analytics
+    <pre><code>Chronos v0.1b &mdash; Git Analytics
 
   [Hotspots]  Info  Authors
 
@@ -44,14 +44,14 @@ Hotspots
   2. src/utils.rb         12
   3. lib/helper.rb         8
 
-&larr; &rarr; tabs  &uarr; &darr; scroll  q quit</code></pre>
+TAB next tab  j/k scroll  q quit</code></pre>
 
     <h2>Features</h2>
     <ul>
       <li><strong>Hotspots tab</strong> &mdash; most-changed files ranked by commits</li>
       <li><strong>Authors tab</strong> &mdash; top contributors ranked by commits</li>
       <li><strong>Info tab</strong> &mdash; repo overview and file-type breakdown</li>
-      <li><strong>Scrollable lists</strong> &mdash; arrow keys navigate long lists</li>
+      <li><strong>Scrollable lists</strong> &mdash; <code>j</code>/<code>k</code> navigate long lists</li>
       <li><strong>Auto-refresh</strong> (<code>--watch</code>) &mdash; updates every 2s</li>
       <li><strong>JSON export</strong> (<code>--json</code>) &mdash; pipe data to other tools</li>
       <li><strong>Zero dependencies</strong> &mdash; Ruby stdlib only</li>

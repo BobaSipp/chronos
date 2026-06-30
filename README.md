@@ -5,12 +5,31 @@
 Chronos is a Ruby TUI that gives you a live, interactive overview of your Git
 repository's commit activity. No external dependencies, no bundler, no fuss.
 
-## Quick Start
+## Installation
+
+### Via RubyGems (recommended)
+
+```bash
+gem install chronos
+```
+
+Then run `chronos` from any Git repository.
+
+### From source
 
 ```bash
 git clone https://github.com/BobaSipp/chronos.git
 cd chronos
-ruby chronos.rb
+gem build chronos.gemspec
+gem install chronos-*.gem
+```
+
+Or run directly without installing:
+
+```bash
+git clone https://github.com/BobaSipp/chronos.git
+cd chronos
+ruby bin/chronos
 ```
 
 Run it from any Git repository directory.
@@ -18,7 +37,7 @@ Run it from any Git repository directory.
 ## What It Looks Like
 
 ```
-Chronos v0.3.0 — Git Analytics
+Chronos v0.1b — Git Analytics
 
   [Hotspots]  Info  Authors
 
@@ -45,11 +64,12 @@ to scroll, `q` to quit.
 - **Sort options** — `--sort count` (default) or `--sort name`
 - **Zero dependencies** — uses only Ruby stdlib (`io/console`, `English`, `json`)
 - **Cross-platform** — runs on Linux, macOS, Windows (anywhere Ruby runs)
+- **Installable gem** — `gem install chronos`, then run `chronos` from any repo
 
 ## Usage
 
 ```
-ruby chronos.rb [options]
+chronos [options]
 
 Options:
   --hotspots    Launch directly into the Hotspots tab

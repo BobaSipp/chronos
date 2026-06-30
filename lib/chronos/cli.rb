@@ -28,7 +28,7 @@ module Chronos
     puts <<~USAGE
       #{ANSI::BOLD}Chronos#{ANSI::RESET} #{VERSION} \u2014 Git repository analytics TUI
 
-      Usage: ruby chronos.rb [options]
+      Usage: chronos [options]
 
       Options:
         --hotspots    Launch directly into the Hotspots tab
