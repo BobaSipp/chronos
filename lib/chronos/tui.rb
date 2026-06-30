@@ -7,7 +7,7 @@ module Chronos
     trap("INT") { cleanup_and_exit(1) }
 
     print ANSI::ALT_BUF + ANSI::HIDE_CURSOR
-    print ANSI::HOME + "  #{ANSI::BOLD}Gathering repository data...#{ANSI::RESET}\n"
+    print ANSI::CLR + ANSI::HOME + "  #{ANSI::BOLD}Gathering repository data...#{ANSI::RESET}\n"
     data_cache = collect_git_data
 
     current_tab = opts[:tab]
@@ -17,7 +17,7 @@ module Chronos
       rows, _cols = IO.console.winsize
       content_lines = [rows - 5, 1].max
       frame = render(current_tab, data_cache, scroll, content_lines, opts[:sort])
-      print ANSI::HOME + frame
+      print ANSI::CLR + ANSI::HOME + frame
 
       case read_key(opts[:watch] ? 2 : nil)
       when :tab
@@ -31,7 +31,7 @@ module Chronos
         max_scroll = [max_items - visible, 0].max
         scroll = scroll + 1 if scroll < max_scroll
       when :timeout
-        print ANSI::HOME + "  #{ANSI::BOLD}Refreshing repository data...#{ANSI::RESET}\n"
+        print ANSI::CLR + ANSI::HOME + "  #{ANSI::BOLD}Refreshing repository data...#{ANSI::RESET}\n"
         data_cache = collect_git_data
         scroll = 0
       when :quit then break

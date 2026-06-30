@@ -12,6 +12,7 @@ module Chronos
     MAGENTA = "\e[35m"
     BLUE    = "\e[34m"
     RESET   = "\e[0m"
+    CLR     = "\e[2J"
     HOME    = "\e[H"
     HIDE_CURSOR = "\e[?25l"
     SHOW_CURSOR = "\e[?25h"
