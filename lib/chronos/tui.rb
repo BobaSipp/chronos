@@ -14,9 +14,9 @@ module Chronos
     scroll = 0
 
     loop do
-      rows, cols = IO.console.winsize
-      content_lines = [rows - 11, 1].max
-      frame = render(cols, rows, current_tab, data_cache, scroll, content_lines, opts[:sort])
+      rows, _cols = IO.console.winsize
+      content_lines = [rows - 5, 1].max
+      frame = render(current_tab, data_cache, scroll, content_lines, opts[:sort])
       print ANSI::HOME + frame
 
       case read_key(opts[:watch] ? 2 : nil)
@@ -28,12 +28,10 @@ module Chronos
         scroll = 0
       when :up
         max_items = tab_item_count(current_tab, data_cache)
-        visible = content_lines - 2
-        max_scroll = [max_items - visible, 0].max
         scroll = scroll - 1 if scroll > 0
       when :down
         max_items = tab_item_count(current_tab, data_cache)
-        visible = content_lines - 2
+        visible = content_lines - 1
         max_scroll = [max_items - visible, 0].max
         scroll = scroll + 1 if scroll < max_scroll
       when :timeout
