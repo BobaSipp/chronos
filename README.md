@@ -31,6 +31,32 @@ Chronos is a single-file Ruby TUI that gives you a live, interactive overview of
 
 No `Gemfile`, `bundle install`, or setup required.
 
+## Project Structure
+
+```
+chronos/
+  bin/
+    chronos            # Executable entry point
+  lib/
+    chronos.rb         # Main library entry point
+    chronos/
+      version.rb       # VERSION constant
+      ansi.rb          # ANSI escape code constants
+      data.rb          # GitData struct & data collection
+      cli.rb           # CLI option parsing & JSON export
+      tui.rb           # Terminal UI main loop & keyboard input
+      renderer.rb      # All rendering & display logic
+  dcs/                 # Documentation website
+    index.html
+    installation.html
+    usage.html
+    features.html
+    contributing.html
+    assets/style.css
+  LICENSE
+  README.md
+```
+
 ## Usage
 
 ```

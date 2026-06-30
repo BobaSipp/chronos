@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Installation — Chronos</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <a href="index.html">
+        <div class="logo-icon">C</div>
+        <div>
+          <span class="logo-text">Chronos</span>
+          <span class="logo-sub">Git Analytics TUI</span>
+        </div>
+      </a>
+    </div>
+    <nav class="sidebar-nav">
+      <div class="nav-section">
+        <div class="nav-label">Getting Started</div>
+        <a href="index.html"><span class="nav-icon">&#9679;</span> Overview</a>
+        <a href="installation.html" class="active"><span class="nav-icon">&#9679;</span> Installation</a>
+        <a href="usage.html"><span class="nav-icon">&#9679;</span> Usage Guide</a>
+      </div>
+      <div class="nav-section">
+        <div class="nav-label">Reference</div>
+        <a href="features.html"><span class="nav-icon">&#9679;</span> Features</a>
+        <a href="contributing.html"><span class="nav-icon">&#9679;</span> Contributing</a>
+      </div>
+    </nav>
+  </aside>
+
+  <main class="main">
+    <div class="content">
+      <h1>Installation</h1>
+      <p class="lead">Get Chronos running on your machine in under a minute.</p>
+
+      <h2>Prerequisites</h2>
+      <ul>
+        <li><strong>Ruby</strong> (MRI Ruby 2.5 or later) — <a href="https://www.ruby-lang.org/en/downloads/" target="_blank">ruby-lang.org</a></li>
+        <li><strong>Git</strong> — any modern version</li>
+      </ul>
+
+      <blockquote>
+        <strong>No external gems required.</strong> Chronos uses only Ruby's standard library.
+        You do <em>not</em> need Bundler, RVM, rbenv, or any other tooling.
+      </blockquote>
+
+      <h2>Setup</h2>
+
+      <ol class="step-list">
+        <li>
+          <strong>Clone the repository</strong>
+          <pre><code>git clone https://github.com/BobaSipp/chronos.git
+cd chronos</code></pre>
+        </li>
+        <li>
+          <strong>Verify Ruby is installed</strong>
+          <pre><code>ruby --version</code></pre>
+          <p>You should see output similar to <code>ruby 3.4.0</code>.</p>
+        </li>
+        <li>
+          <strong>Run it</strong>
+          <pre><code>ruby chronos.rb --help</code></pre>
+          <p>You should see the usage information printed to your terminal.</p>
+        </li>
+      </ol>
+
+      <blockquote>
+        <strong>Tip:</strong> Run <code>ruby bin/chronos</code> as an alternative entry point.
+      </blockquote>
+
+      <h2>Verification</h2>
+      <p>
+        Navigate to any Git repository and run <code>ruby /path/to/chronos/chronos.rb</code>
+        (or add an alias). You should see the Chronos TUI dashboard with your repository's
+        analytics.
+      </p>
+
+      <h2>Updating</h2>
+      <p>
+        Since Chronos is installed via Git, updating is straightforward:
+      </p>
+      <pre><code>cd chronos
+git pull</code></pre>
+
+      <hr>
+
+      <p style="color: var(--text-light); font-size: 0.85rem;">
+        Having trouble? Check the <a href="contributing.html">contributing guide</a> or open an issue on GitHub.
+      </p>
+    </div>
+  </main>
+</body>
+</html>
