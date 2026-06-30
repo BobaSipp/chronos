@@ -7,47 +7,45 @@
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <nav>
+  <div class="sidebar">
     <strong>Chronos</strong>
     <a href="index.html">Overview</a>
     <a href="installation.html" class="active">Installation</a>
     <a href="usage.html">Usage</a>
     <a href="features.html">Features</a>
     <a href="contributing.html">Contributing</a>
-  </nav>
+  </div>
+  <div class="main">
+    <h1>Installation</h1>
 
-  <h1>Installation</h1>
+    <h2>Prerequisites</h2>
+    <ul>
+      <li><strong>Ruby</strong> (MRI 2.5+) &mdash; <a href="https://www.ruby-lang.org/">ruby-lang.org</a></li>
+      <li><strong>Git</strong> &mdash; any version</li>
+    </ul>
 
-  <h2>Prerequisites</h2>
-  <ul>
-    <li><strong>Ruby</strong> (MRI 2.5+) &mdash; <a href="https://www.ruby-lang.org/">ruby-lang.org</a></li>
-    <li><strong>Git</strong> &mdash; any version</li>
-  </ul>
+    <p>No external gems are required. Chronos uses only Ruby's standard library.</p>
 
-  <p>No external gems are required. Chronos uses only Ruby's standard library.</p>
-
-  <h2>Setup</h2>
-  <ol>
-    <li>
-      <strong>Clone the repo</strong>
-      <pre><code>git clone https://github.com/BobaSipp/chronos.git
+    <h2>Setup</h2>
+    <ol>
+      <li>
+        <strong>Clone the repo</strong>
+        <pre><code>git clone https://github.com/BobaSipp/chronos.git
 cd chronos</code></pre>
-    </li>
-    <li>
-      <strong>Verify Ruby</strong>
-      <pre><code>ruby --version</code></pre>
-    </li>
-    <li>
-      <strong>Run it</strong>
-      <pre><code>ruby chronos.rb --help</code></pre>
-    </li>
-  </ol>
+      </li>
+      <li>
+        <strong>Verify Ruby</strong>
+        <pre><code>ruby --version</code></pre>
+      </li>
+      <li>
+        <strong>Run it</strong>
+        <pre><code>ruby chronos.rb --help</code></pre>
+      </li>
+    </ol>
 
-  <h2>Updating</h2>
-  <pre><code>cd chronos
+    <h2>Updating</h2>
+    <pre><code>cd chronos
 git pull</code></pre>
-
-  <hr>
-  <p style="color:#888;font-size:0.85rem;"><a href="index.html">&larr; Back to overview</a></p>
+  </div>
 </body>
 </html>

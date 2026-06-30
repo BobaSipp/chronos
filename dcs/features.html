@@ -7,51 +7,51 @@
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <nav>
+  <div class="sidebar">
     <strong>Chronos</strong>
     <a href="index.html">Overview</a>
     <a href="installation.html">Installation</a>
     <a href="usage.html">Usage</a>
     <a href="features.html" class="active">Features</a>
     <a href="contributing.html">Contributing</a>
-  </nav>
+  </div>
+  <div class="main">
+    <h1>Features</h1>
 
-  <h1>Features</h1>
+    <h2>Hotspots Tab</h2>
+    <p>
+      Shows your repository's most frequently changed files, ranked by the number of commits
+      they appear in. Each file has a proportional bar chart and commit count. Sort by count
+      (default) or alphabetically with <code>--sort name</code>.
+    </p>
 
-  <h2>Hotspots Tab</h2>
-  <p>
-    Shows your repository's most frequently changed files, ranked by the number of commits
-    they appear in. Each file has a proportional bar chart and commit count. Sort by count
-    (default) or alphabetically with <code>--sort name</code>.
-  </p>
+    <h2>Authors Tab</h2>
+    <p>
+      Lists every committer ranked by commit count with proportional bar charts.
+    </p>
 
-  <h2>Authors Tab</h2>
-  <p>
-    Lists every committer ranked by commit count with proportional bar charts.
-  </p>
+    <h2>Info Tab</h2>
+    <p>
+      Repository overview showing directory path, total commits, branch list, unique author
+      count, and a file-type breakdown grouped by extension.
+    </p>
 
-  <h2>Info Tab</h2>
-  <p>
-    Repository overview showing directory path, total commits, branch list, unique author
-    count, and a file-type breakdown grouped by extension.
-  </p>
+    <h2>Scrollable Lists</h2>
+    <p>
+      When lists are longer than the screen, use <code>&uarr;</code> and <code>&darr;</code>
+      to scroll. A status line shows current position.
+    </p>
 
-  <h2>Scrollable Lists</h2>
-  <p>
-    When lists are longer than the screen, use <code>&uarr;</code> and <code>&darr;</code>
-    to scroll. A status line shows current position.
-  </p>
+    <h2>Auto-Refresh (<code>--watch</code>)</h2>
+    <p>
+      Re-collects Git data every 2 seconds. Useful for monitoring active repositories.
+    </p>
 
-  <h2>Auto-Refresh (<code>--watch</code>)</h2>
-  <p>
-    Re-collects Git data every 2 seconds. Useful for monitoring active repositories.
-  </p>
-
-  <h2>JSON Export (<code>--json</code>)</h2>
-  <p>
-    Outputs all data as formatted JSON, then exits. Designed for scripting and integration.
-  </p>
-  <pre><code>ruby chronos.rb --json
+    <h2>JSON Export (<code>--json</code>)</h2>
+    <p>
+      Outputs all data as formatted JSON, then exits. Designed for scripting and integration.
+    </p>
+    <pre><code>ruby chronos.rb --json
 
 {
   "version": "0.3.0",
@@ -69,13 +69,11 @@
   ]
 }</code></pre>
 
-  <h2>Zero Dependencies</h2>
-  <p>
-    Uses only <code>io/console</code>, <code>English</code>, and <code>json</code> from
-    Ruby's standard library. No gems, no bundler, no npm.
-  </p>
-
-  <hr>
-  <p style="color:#888;font-size:0.85rem;"><a href="index.html">&larr; Back to overview</a></p>
+    <h2>Zero Dependencies</h2>
+    <p>
+      Uses only <code>io/console</code>, <code>English</code>, and <code>json</code> from
+      Ruby's standard library. No gems, no bundler, no npm.
+    </p>
+  </div>
 </body>
 </html>

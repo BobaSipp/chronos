@@ -7,56 +7,54 @@
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <nav>
+  <div class="sidebar">
     <strong>Chronos</strong>
     <a href="index.html">Overview</a>
     <a href="installation.html">Installation</a>
     <a href="usage.html" class="active">Usage</a>
     <a href="features.html">Features</a>
     <a href="contributing.html">Contributing</a>
-  </nav>
+  </div>
+  <div class="main">
+    <h1>Usage Guide</h1>
 
-  <h1>Usage Guide</h1>
+    <pre><code>ruby chronos.rb</code></pre>
+    <p>Run from any directory inside a Git repository.</p>
 
-  <pre><code>ruby chronos.rb</code></pre>
-  <p>Run from any directory inside a Git repository.</p>
+    <h2>Keyboard Controls</h2>
+    <table>
+      <tr><th>Key</th><th>Action</th></tr>
+      <tr><td><code>&larr; &rarr;</code></td><td>Switch tabs</td></tr>
+      <tr><td><code>&uarr; &darr;</code></td><td>Scroll through lists</td></tr>
+      <tr><td><code>q</code></td><td>Quit</td></tr>
+    </table>
 
-  <h2>Keyboard Controls</h2>
-  <table>
-    <tr><th>Key</th><th>Action</th></tr>
-    <tr><td><code>&larr; &rarr;</code></td><td>Switch tabs</td></tr>
-    <tr><td><code>&uarr; &darr;</code></td><td>Scroll through lists</td></tr>
-    <tr><td><code>q</code></td><td>Quit</td></tr>
-  </table>
+    <h2>Tabs</h2>
+    <table>
+      <tr><th>Tab</th><th>Description</th></tr>
+      <tr><td><strong>Hotspots</strong></td><td>Most frequently changed files with bar charts</td></tr>
+      <tr><td><strong>Info</strong></td><td>Repo overview: path, commits, branches, file types</td></tr>
+      <tr><td><strong>Authors</strong></td><td>Top contributors ranked by commit count</td></tr>
+    </table>
 
-  <h2>Tabs</h2>
-  <table>
-    <tr><th>Tab</th><th>Description</th></tr>
-    <tr><td><strong>Hotspots</strong></td><td>Most frequently changed files with bar charts</td></tr>
-    <tr><td><strong>Info</strong></td><td>Repo overview: path, commits, branches, file types</td></tr>
-    <tr><td><strong>Authors</strong></td><td>Top contributors ranked by commit count</td></tr>
-  </table>
+    <h2>Command-Line Options</h2>
+    <table>
+      <tr><th>Option</th><th>Description</th></tr>
+      <tr><td><code>--hotspots</code></td><td>Start on Hotspots tab</td></tr>
+      <tr><td><code>--info</code></td><td>Start on Info tab</td></tr>
+      <tr><td><code>--authors</code></td><td>Start on Authors tab</td></tr>
+      <tr><td><code>--watch</code></td><td>Auto-refresh every 2 seconds</td></tr>
+      <tr><td><code>--sort count</code></td><td>Sort hotspots by commit count (default)</td></tr>
+      <tr><td><code>--sort name</code></td><td>Sort hotspots alphabetically</td></tr>
+      <tr><td><code>--json</code></td><td>Export data as JSON and exit</td></tr>
+      <tr><td><code>--help</code>, <code>-h</code></td><td>Show help</td></tr>
+    </table>
 
-  <h2>Command-Line Options</h2>
-  <table>
-    <tr><th>Option</th><th>Description</th></tr>
-    <tr><td><code>--hotspots</code></td><td>Start on Hotspots tab</td></tr>
-    <tr><td><code>--info</code></td><td>Start on Info tab</td></tr>
-    <tr><td><code>--authors</code></td><td>Start on Authors tab</td></tr>
-    <tr><td><code>--watch</code></td><td>Auto-refresh every 2 seconds</td></tr>
-    <tr><td><code>--sort count</code></td><td>Sort hotspots by commit count (default)</td></tr>
-    <tr><td><code>--sort name</code></td><td>Sort hotspots alphabetically</td></tr>
-    <tr><td><code>--json</code></td><td>Export data as JSON and exit</td></tr>
-    <tr><td><code>--help</code>, <code>-h</code></td><td>Show help</td></tr>
-  </table>
-
-  <h2>Examples</h2>
-  <pre><code>ruby chronos.rb --authors
+    <h2>Examples</h2>
+    <pre><code>ruby chronos.rb --authors
 ruby chronos.rb --watch
 ruby chronos.rb --sort name
 ruby chronos.rb --json | jq '.hotspots[:3]'</code></pre>
-
-  <hr>
-  <p style="color:#888;font-size:0.85rem;"><a href="index.html">&larr; Back to overview</a></p>
+  </div>
 </body>
 </html>

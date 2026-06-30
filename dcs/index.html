@@ -7,52 +7,53 @@
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <nav>
+  <div class="sidebar">
     <strong>Chronos</strong>
     <a href="index.html" class="active">Overview</a>
     <a href="installation.html">Installation</a>
     <a href="usage.html">Usage</a>
     <a href="features.html">Features</a>
     <a href="contributing.html">Contributing</a>
-  </nav>
+  </div>
+  <div class="main">
+    <h1>Chronos</h1>
+    <p><em>Lightweight terminal-based Git repository analytics dashboard.</em></p>
 
-  <h1>Chronos</h1>
-  <p><em>Lightweight terminal-based Git repository analytics dashboard.</em></p>
+    <p>
+      Chronos is a Ruby TUI that gives you a live, interactive overview of your Git
+      repository's commit activity. No external dependencies, no bundler, no fuss.
+    </p>
 
-  <p>
-    Chronos is a Ruby TUI that gives you a live, interactive overview of your Git
-    repository's commit activity. No external dependencies, no bundler, no fuss.
-  </p>
-
-  <h2>Quick Start</h2>
-  <pre><code>git clone https://github.com/BobaSipp/chronos.git
+    <h2>Quick Start</h2>
+    <pre><code>git clone https://github.com/BobaSipp/chronos.git
 cd chronos
 ruby chronos.rb</code></pre>
 
-  <p>
-    Run it from any Git repository. Switch tabs with <code>&larr;</code> and <code>&rarr;</code>,
-    scroll with <code>&uarr;</code> and <code>&darr;</code>, quit with <code>q</code>.
-  </p>
+    <p>
+      Run it from any Git repository. Switch tabs with <code>&larr;</code> and <code>&rarr;</code>,
+      scroll with <code>&uarr;</code> and <code>&darr;</code>, quit with <code>q</code>.
+    </p>
 
-  <h2>Features</h2>
-  <ul>
-    <li><strong>Hotspots tab</strong> &mdash; most-changed files with bar charts</li>
-    <li><strong>Authors tab</strong> &mdash; top contributors ranked by commits</li>
-    <li><strong>Info tab</strong> &mdash; repo overview and file-type breakdown</li>
-    <li><strong>Scrollable lists</strong> &mdash; arrow keys navigate long lists</li>
-    <li><strong>Auto-refresh</strong> (<code>--watch</code>) &mdash; updates every 2s</li>
-    <li><strong>JSON export</strong> (<code>--json</code>) &mdash; pipe data to other tools</li>
-    <li><strong>Zero dependencies</strong> &mdash; Ruby stdlib only</li>
-  </ul>
+    <h2>Features</h2>
+    <ul>
+      <li><strong>Hotspots tab</strong> &mdash; most-changed files with bar charts</li>
+      <li><strong>Authors tab</strong> &mdash; top contributors ranked by commits</li>
+      <li><strong>Info tab</strong> &mdash; repo overview and file-type breakdown</li>
+      <li><strong>Scrollable lists</strong> &mdash; arrow keys navigate long lists</li>
+      <li><strong>Auto-refresh</strong> (<code>--watch</code>) &mdash; updates every 2s</li>
+      <li><strong>JSON export</strong> (<code>--json</code>) &mdash; pipe data to other tools</li>
+      <li><strong>Zero dependencies</strong> &mdash; Ruby stdlib only</li>
+    </ul>
 
-  <h2>How It Works</h2>
-  <p>
-    Chronos runs <code>git log --name-only --oneline</code> to parse commit history,
-    groups changed files, and ranks them by frequency. All rendering is done with raw
-    ANSI escape codes. The application is organized under <code>lib/chronos/</code>.
-  </p>
+    <h2>How It Works</h2>
+    <p>
+      Chronos runs <code>git log --name-only --oneline</code> to parse commit history,
+      groups changed files, and ranks them by frequency. All rendering is done with raw
+      ANSI escape codes. The application is organized under <code>lib/chronos/</code>.
+    </p>
 
-  <hr>
-  <p style="color:#888;font-size:0.85rem;">MIT licensed.</p>
+    <hr>
+    <p style="color:#888;font-size:0.85rem;">MIT licensed.</p>
+  </div>
 </body>
 </html>
