@@ -11,6 +11,8 @@ require_relative "chronos/tui"
 require_relative "chronos/renderer"
 
 module Chronos
+  TAB_LABELS = ["Hotspots", "Info", "Authors"].freeze
+
   module_function
 
   def run(argv)
