@@ -24,7 +24,10 @@ jobs:
 
       - name: Publish to GitHub Packages
         run: |
-          mkdir -p ~/.gem
-          printf '---\n:github: Bearer %s\n' "${{ secrets.GITHUB_TOKEN }}" > ~/.gem/credentials
-          chmod 0600 ~/.gem/credentials
+          ruby -e '
+            require "fileutils"
+            path = File.expand_path("~/.gem/credentials")
+            File.write(path, "---\n:github: Bearer #{ARGV[0]}\n")
+            File.chmod(0600, path)
+          ' "${{ secrets.GITHUB_TOKEN }}"
           gem push --key github --host https://rubygems.pkg.github.com/${{ github.repository_owner }} chronos-*.gem
