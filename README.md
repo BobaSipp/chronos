@@ -2,60 +2,49 @@
 
 **Lightweight terminal-based Git repository analytics dashboard.**
 
-Chronos is a single-file Ruby TUI that gives you a live, interactive overview of your Git repository's commit activity — no external dependencies, no bundler, no fuss.
+Chronos is a Ruby TUI that gives you a live, interactive overview of your Git
+repository's commit activity. No external dependencies, no bundler, no fuss.
+
+## Quick Start
+
+```bash
+git clone https://github.com/BobaSipp/chronos.git
+cd chronos
+ruby chronos.rb
+```
+
+Run it from any Git repository directory.
+
+## What It Looks Like
+
+```
+Chronos v0.3.0 — Git Analytics
+
+  [Hotspots]  Info  Authors
+
+Hotspots
+  1. src/main.rb          34
+  2. src/utils.rb         12
+  3. lib/helper.rb         8
+  4. tests/main_test.rb    5
+  5. src/cli.rb            3
+
+← → tabs  ↑ ↓ scroll  q quit
+```
+
+Three tabs: **Hotspots** (most-changed files), **Info** (repo overview + file-type
+breakdown), and **Authors** (top contributors). Navigate with arrow keys, scroll
+through long lists, quit with `q`.
 
 ## Features
 
-- **Hotspots tab** — Most frequently changed files, ranked by commit count with visual bar charts (scrollable with ↑/↓)
-- **Authors tab** — Top contributors, ranked by commit count with bar charts (scrollable)
-- **Info tab** — Repository overview: directory path, total commits, branches, author count, and file-type breakdown with bar charts
-- **Scrollable lists** — ↑/↓ to scroll through long lists
-- **Auto-refresh** (`--watch`) — Re-collect data every 2 seconds
-- **JSON export** (`--json`) — Dump all data as JSON for scripting
-- **Sort options** — Sort hotspots by commit count or alphabetically
-- **No dependencies** — Uses only Ruby stdlib (`io/console`, `English`, `json`)
-- **Works anywhere** — Run from any directory inside a Git repository
-
-## Installation
-
-1. **Install Ruby** (MRI Ruby 2.x+ — [ruby-lang.org](https://www.ruby-lang.org/))
-2. **Clone the repo:**
-   ```bash
-   git clone https://github.com/BobaSipp/chronos.git
-   cd chronos
-   ```
-3. **Run it:**
-   ```bash
-   ruby chronos.rb
-   ```
-
-No `Gemfile`, `bundle install`, or setup required.
-
-## Project Structure
-
-```
-chronos/
-  bin/
-    chronos            # Executable entry point
-  lib/
-    chronos.rb         # Main library entry point
-    chronos/
-      version.rb       # VERSION constant
-      ansi.rb          # ANSI escape code constants
-      data.rb          # GitData struct & data collection
-      cli.rb           # CLI option parsing & JSON export
-      tui.rb           # Terminal UI main loop & keyboard input
-      renderer.rb      # All rendering & display logic
-  dcs/                 # Documentation website
-    index.html
-    installation.html
-    usage.html
-    features.html
-    contributing.html
-    assets/style.css
-  LICENSE
-  README.md
-```
+- **Three tabs** — Hotspots, Info, Authors with keyboard tab switching
+- **Scrollable lists** — arrow keys navigate long lists
+- **Auto-refresh** (`--watch`) — re-collects data every 2 seconds
+- **JSON export** (`--json`) — outputs all data as JSON for scripting
+- **Sort options** — `--sort count` (default) or `--sort name`
+- **Zero dependencies** — uses only Ruby stdlib (`io/console`, `English`, `json`)
+- **Cross-platform** — runs on Linux, macOS, Windows (anywhere Ruby runs)
 
 ## Usage
 
@@ -79,28 +68,31 @@ Options:
 | `↑` / `↓` | Scroll through lists |
 | `q` | Quit |
 
-## Example
+## Project Structure
 
-```bash
-# Launch TUI
-ruby chronos.rb
-
-# Start on a specific tab
-ruby chronos.rb --authors
-
-# Auto-refresh every 2 seconds
-ruby chronos.rb --watch
-
-# Sort hotspots alphabetically
-ruby chronos.rb --sort name
-
-# Export data as JSON
-ruby chronos.rb --json
+```
+chronos/
+  bin/chronos           # Executable entry point
+  lib/
+    chronos.rb          # Library entry point
+    chronos/
+      version.rb        # VERSION constant
+      ansi.rb           # ANSI escape codes
+      data.rb           # GitData struct & data collection
+      cli.rb            # CLI option parsing & JSON export
+      tui.rb            # TUI main loop & keyboard input
+      renderer.rb       # All rendering logic
+  dcs/                  # Documentation website
+  LICENSE
+  README.md
 ```
 
-## How it works
+## How It Works
 
-Chronos runs `git log --name-only --oneline` to parse commit history, groups the changed files, and ranks them by frequency. Author stats come from `git log --format=%an`. All rendering is done with raw ANSI escape codes — no curses or terminfo required.
+Chronos runs `git log --name-only --oneline` to parse commit history, groups
+changed files, and ranks them by frequency. Author stats come from
+`git log --format=%an`. All rendering is done with raw ANSI escape codes.
+The application is organized into focused modules under `lib/chronos/`.
 
 ## License
 

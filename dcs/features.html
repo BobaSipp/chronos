@@ -21,13 +21,13 @@
     <h2>Hotspots Tab</h2>
     <p>
       Shows your repository's most frequently changed files, ranked by the number of commits
-      they appear in. Each file has a proportional bar chart and commit count. Sort by count
-      (default) or alphabetically with <code>--sort name</code>.
+      they appear in. Each file shows its commit count. Sort by count (default) or
+      alphabetically with <code>--sort name</code>.
     </p>
 
     <h2>Authors Tab</h2>
     <p>
-      Lists every committer ranked by commit count with proportional bar charts.
+      Lists every committer ranked by commit count.
     </p>
 
     <h2>Info Tab</h2>
@@ -74,6 +74,18 @@
       Uses only <code>io/console</code>, <code>English</code>, and <code>json</code> from
       Ruby's standard library. No gems, no bundler, no npm.
     </p>
+
+    <h2>Example Output</h2>
+    <pre><code>Chronos v0.3.0 &mdash; Git Analytics
+
+  [Hotspots]  Info  Authors
+
+Hotspots
+  1. src/main.rb          34
+  2. src/utils.rb         12
+  3. lib/helper.rb         8
+
+&larr; &rarr; tabs  &uarr; &darr; scroll  q quit</code></pre>
   </div>
 </body>
 </html>

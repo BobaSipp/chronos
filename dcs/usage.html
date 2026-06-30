@@ -32,7 +32,7 @@
     <h2>Tabs</h2>
     <table>
       <tr><th>Tab</th><th>Description</th></tr>
-      <tr><td><strong>Hotspots</strong></td><td>Most frequently changed files with bar charts</td></tr>
+      <tr><td><strong>Hotspots</strong></td><td>Most frequently changed files ranked by commits</td></tr>
       <tr><td><strong>Info</strong></td><td>Repo overview: path, commits, branches, file types</td></tr>
       <tr><td><strong>Authors</strong></td><td>Top contributors ranked by commit count</td></tr>
     </table>
@@ -49,6 +49,18 @@
       <tr><td><code>--json</code></td><td>Export data as JSON and exit</td></tr>
       <tr><td><code>--help</code>, <code>-h</code></td><td>Show help</td></tr>
     </table>
+
+    <h2>Example Output</h2>
+    <pre><code>Chronos v0.3.0 &mdash; Git Analytics
+
+  [Hotspots]  Info  Authors
+
+Hotspots
+  1. src/main.rb          34
+  2. src/utils.rb         12
+  3. lib/helper.rb         8
+
+&larr; &rarr; tabs  &uarr; &darr; scroll  q quit</code></pre>
 
     <h2>Examples</h2>
     <pre><code>ruby chronos.rb --authors
