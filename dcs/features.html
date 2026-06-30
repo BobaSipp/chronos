@@ -7,92 +7,51 @@
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <aside class="sidebar">
-    <div class="sidebar-logo">
-      <a href="index.html">
-        <div class="logo-icon">C</div>
-        <div>
-          <span class="logo-text">Chronos</span>
-          <span class="logo-sub">Git Analytics TUI</span>
-        </div>
-      </a>
-    </div>
-    <nav class="sidebar-nav">
-      <div class="nav-section">
-        <div class="nav-label">Getting Started</div>
-        <a href="index.html"><span class="nav-icon">&#9679;</span> Overview</a>
-        <a href="installation.html"><span class="nav-icon">&#9679;</span> Installation</a>
-        <a href="usage.html"><span class="nav-icon">&#9679;</span> Usage Guide</a>
-      </div>
-      <div class="nav-section">
-        <div class="nav-label">Reference</div>
-        <a href="features.html" class="active"><span class="nav-icon">&#9679;</span> Features</a>
-        <a href="contributing.html"><span class="nav-icon">&#9679;</span> Contributing</a>
-      </div>
-    </nav>
-  </aside>
+  <nav>
+    <strong>Chronos</strong>
+    <a href="index.html">Overview</a>
+    <a href="installation.html">Installation</a>
+    <a href="usage.html">Usage</a>
+    <a href="features.html" class="active">Features</a>
+    <a href="contributing.html">Contributing</a>
+  </nav>
 
-  <main class="main">
-    <div class="content">
-      <h1>Features</h1>
-      <p class="lead">A detailed breakdown of everything Chronos can do.</p>
+  <h1>Features</h1>
 
-      <h2>Hotspots Tab</h2>
-      <p>
-        The Hotspots tab shows your repository's most frequently changed files, ranked by the
-        number of commits they appear in. Each file is displayed with a visual bar chart that
-        scales relative to the top hotspot, plus the raw commit count.
-      </p>
-      <p>
-        Use the <code>--sort count</code> and <code>--sort name</code> flags to switch between
-        sorting by commit frequency and alphabetical order.
-      </p>
-      <pre><code>ruby chronos.rb --sort name</code></pre>
+  <h2>Hotspots Tab</h2>
+  <p>
+    Shows your repository's most frequently changed files, ranked by the number of commits
+    they appear in. Each file has a proportional bar chart and commit count. Sort by count
+    (default) or alphabetically with <code>--sort name</code>.
+  </p>
 
-      <h2>Authors Tab</h2>
-      <p>
-        See who contributes most to your repository. The Authors tab lists every committer
-        ranked by commit count, with proportional bar charts. Useful for understanding team
-        contribution patterns and identifying "bus factor" risks.
-      </p>
+  <h2>Authors Tab</h2>
+  <p>
+    Lists every committer ranked by commit count with proportional bar charts.
+  </p>
 
-      <h2>Info Tab</h2>
-      <p>
-        The Info tab provides a high-level overview of your repository:
-      </p>
-      <ul>
-        <li><strong>Directory</strong> — absolute path to the repository root</li>
-        <li><strong>Commits</strong> — total commit count across all branches</li>
-        <li><strong>Branches</strong> — list of all local branches</li>
-        <li><strong>Authors</strong> — number of unique committers</li>
-        <li><strong>Files changed</strong> — number of unique files touched in commit history</li>
-      </ul>
-      <p>
-        It also includes a <strong>File Types</strong> section that breaks down your project
-        by file extension, showing which types of files dominate your codebase.
-      </p>
+  <h2>Info Tab</h2>
+  <p>
+    Repository overview showing directory path, total commits, branch list, unique author
+    count, and a file-type breakdown grouped by extension.
+  </p>
 
-      <h2>Scrollable Lists</h2>
-      <p>
-        When the Hotspots or Authors tabs contain more items than fit on screen, use
-        <code>↑</code> and <code>↓</code> to scroll through the list. A scroll indicator
-        at the bottom shows the current position (e.g., "32 total, showing 1-9 (28%)").
-      </p>
+  <h2>Scrollable Lists</h2>
+  <p>
+    When lists are longer than the screen, use <code>&uarr;</code> and <code>&darr;</code>
+    to scroll. A status line shows current position.
+  </p>
 
-      <h2>Auto-Refresh (<code>--watch</code>)</h2>
-      <p>
-        In watch mode, Chronos re-collects Git data every 2 seconds automatically. The
-        terminal shows "Refreshing repository data..." during each cycle. Useful for
-        monitoring active development in real time.
-      </p>
-      <pre><code>ruby chronos.rb --watch</code></pre>
+  <h2>Auto-Refresh (<code>--watch</code>)</h2>
+  <p>
+    Re-collects Git data every 2 seconds. Useful for monitoring active repositories.
+  </p>
 
-      <h2>JSON Export (<code>--json</code>)</h2>
-      <p>
-        The <code>--json</code> flag outputs all collected data as formatted JSON, then exits.
-        This is designed for scripting and integration with other tools:
-      </p>
-      <pre><code>ruby chronos.rb --json
+  <h2>JSON Export (<code>--json</code>)</h2>
+  <p>
+    Outputs all data as formatted JSON, then exits. Designed for scripting and integration.
+  </p>
+  <pre><code>ruby chronos.rb --json
 
 {
   "version": "0.3.0",
@@ -100,48 +59,23 @@
   "total_commits": 142,
   "branches": ["main", "dev"],
   "hotspots": [
-    { "file": "src/main.rb", "commits": 34 },
-    ...
+    { "file": "src/main.rb", "commits": 34 }
   ],
   "authors": [
-    { "author": "Alice", "commits": 80 },
-    ...
+    { "author": "Alice", "commits": 80 }
   ],
   "file_types": [
-    { "extension": ".rb", "files": 45 },
-    ...
+    { "extension": ".rb", "files": 45 }
   ]
 }</code></pre>
 
-      <h2>CLI Flags</h2>
-      <p>
-        Chronos supports launching directly into any tab via command-line flags:
-      </p>
-      <pre><code>ruby chronos.rb --hotspots   # Start on Hotspots tab
-ruby chronos.rb --info       # Start on Info tab
-ruby chronos.rb --authors    # Start on Authors tab</code></pre>
+  <h2>Zero Dependencies</h2>
+  <p>
+    Uses only <code>io/console</code>, <code>English</code>, and <code>json</code> from
+    Ruby's standard library. No gems, no bundler, no npm.
+  </p>
 
-      <h2>Zero Dependencies</h2>
-      <p>
-        Chronos uses only Ruby's standard library modules:
-      </p>
-      <ul>
-        <li><code>io/console</code> — terminal size detection and raw keyboard input</li>
-        <li><code>English</code> — <code>$CHILD_STATUS</code> alias for <code>$?</code></li>
-        <li><code>json</code> — JSON generation for the <code>--json</code> flag</li>
-      </ul>
-      <p>
-        No <code>Gemfile</code>, no <code>bundle install</code>, no <code>npm install</code>,
-        no compilation step. Clone and run.
-      </p>
-
-      <h2>Portable</h2>
-      <p>
-        Since Chronos is a single logical application with no external dependencies, it
-        runs on any platform that supports Ruby and Git: Linux, macOS, Windows (with Ruby
-        installed), and even inside containers or CI environments.
-      </p>
-    </div>
-  </main>
+  <hr>
+  <p style="color:#888;font-size:0.85rem;"><a href="index.html">&larr; Back to overview</a></p>
 </body>
 </html>

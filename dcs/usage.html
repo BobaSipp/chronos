@@ -3,170 +3,60 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Usage Guide — Chronos</title>
+  <title>Usage — Chronos</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <aside class="sidebar">
-    <div class="sidebar-logo">
-      <a href="index.html">
-        <div class="logo-icon">C</div>
-        <div>
-          <span class="logo-text">Chronos</span>
-          <span class="logo-sub">Git Analytics TUI</span>
-        </div>
-      </a>
-    </div>
-    <nav class="sidebar-nav">
-      <div class="nav-section">
-        <div class="nav-label">Getting Started</div>
-        <a href="index.html"><span class="nav-icon">&#9679;</span> Overview</a>
-        <a href="installation.html"><span class="nav-icon">&#9679;</span> Installation</a>
-        <a href="usage.html" class="active"><span class="nav-icon">&#9679;</span> Usage Guide</a>
-      </div>
-      <div class="nav-section">
-        <div class="nav-label">Reference</div>
-        <a href="features.html"><span class="nav-icon">&#9679;</span> Features</a>
-        <a href="contributing.html"><span class="nav-icon">&#9679;</span> Contributing</a>
-      </div>
-    </nav>
-  </aside>
+  <nav>
+    <strong>Chronos</strong>
+    <a href="index.html">Overview</a>
+    <a href="installation.html">Installation</a>
+    <a href="usage.html" class="active">Usage</a>
+    <a href="features.html">Features</a>
+    <a href="contributing.html">Contributing</a>
+  </nav>
 
-  <main class="main">
-    <div class="content">
-      <h1>Usage Guide</h1>
-      <p class="lead">Everything you need to know to use Chronos effectively.</p>
+  <h1>Usage Guide</h1>
 
-      <h2>Basic Usage</h2>
-      <pre><code>ruby chronos.rb</code></pre>
-      <p>
-        Run from any directory inside a Git repository. Chronos will immediately display
-        the TUI dashboard with your repository's analytics data.
-      </p>
+  <pre><code>ruby chronos.rb</code></pre>
+  <p>Run from any directory inside a Git repository.</p>
 
-      <h2>Tabs</h2>
-      <p>
-        Chronos has three tabs, switchable with the <code>←</code> and <code>→</code> arrow keys:
-      </p>
+  <h2>Keyboard Controls</h2>
+  <table>
+    <tr><th>Key</th><th>Action</th></tr>
+    <tr><td><code>&larr; &rarr;</code></td><td>Switch tabs</td></tr>
+    <tr><td><code>&uarr; &darr;</code></td><td>Scroll through lists</td></tr>
+    <tr><td><code>q</code></td><td>Quit</td></tr>
+  </table>
 
-      <table>
-        <thead>
-          <tr>
-            <th>Tab</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Hotspots</strong></td>
-            <td>Most frequently changed files, ranked by commit count with visual bar charts. Sortable by count or name.</td>
-          </tr>
-          <tr>
-            <td><strong>Info</strong></td>
-            <td>Repository overview: path, total commits, branches, author count, and file-type breakdown.</td>
-          </tr>
-          <tr>
-            <td><strong>Authors</strong></td>
-            <td>Top contributors ranked by commit count with bar charts.</td>
-          </tr>
-        </tbody>
-      </table>
+  <h2>Tabs</h2>
+  <table>
+    <tr><th>Tab</th><th>Description</th></tr>
+    <tr><td><strong>Hotspots</strong></td><td>Most frequently changed files with bar charts</td></tr>
+    <tr><td><strong>Info</strong></td><td>Repo overview: path, commits, branches, file types</td></tr>
+    <tr><td><strong>Authors</strong></td><td>Top contributors ranked by commit count</td></tr>
+  </table>
 
-      <h2>Keyboard Controls</h2>
+  <h2>Command-Line Options</h2>
+  <table>
+    <tr><th>Option</th><th>Description</th></tr>
+    <tr><td><code>--hotspots</code></td><td>Start on Hotspots tab</td></tr>
+    <tr><td><code>--info</code></td><td>Start on Info tab</td></tr>
+    <tr><td><code>--authors</code></td><td>Start on Authors tab</td></tr>
+    <tr><td><code>--watch</code></td><td>Auto-refresh every 2 seconds</td></tr>
+    <tr><td><code>--sort count</code></td><td>Sort hotspots by commit count (default)</td></tr>
+    <tr><td><code>--sort name</code></td><td>Sort hotspots alphabetically</td></tr>
+    <tr><td><code>--json</code></td><td>Export data as JSON and exit</td></tr>
+    <tr><td><code>--help</code>, <code>-h</code></td><td>Show help</td></tr>
+  </table>
 
-      <div class="key-grid">
-        <span class="key">&larr; &rarr;</span>
-        <span class="desc">Switch between tabs</span>
-        <span class="key">&uarr; &darr;</span>
-        <span class="desc">Scroll through long lists</span>
-        <span class="key">q</span>
-        <span class="desc">Quit Chronos</span>
-      </div>
+  <h2>Examples</h2>
+  <pre><code>ruby chronos.rb --authors
+ruby chronos.rb --watch
+ruby chronos.rb --sort name
+ruby chronos.rb --json | jq '.hotspots[:3]'</code></pre>
 
-      <h2>Command-Line Options</h2>
-
-      <table>
-        <thead>
-          <tr>
-            <th>Option</th>
-            <th>Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>--hotspots</code></td>
-            <td>Launch directly into the Hotspots tab</td>
-          </tr>
-          <tr>
-            <td><code>--info</code></td>
-            <td>Launch directly into the Info tab</td>
-          </tr>
-          <tr>
-            <td><code>--authors</code></td>
-            <td>Launch directly into the Authors tab</td>
-          </tr>
-          <tr>
-            <td><code>--watch</code></td>
-            <td>Auto-refresh data every 2 seconds</td>
-          </tr>
-          <tr>
-            <td><code>--sort count</code></td>
-            <td>Sort hotspots by commit count (default)</td>
-          </tr>
-          <tr>
-            <td><code>--sort name</code></td>
-            <td>Sort hotspots alphabetically by filename</td>
-          </tr>
-          <tr>
-            <td><code>--json</code></td>
-            <td>Export all data as JSON and exit</td>
-          </tr>
-          <tr>
-            <td><code>--help</code>, <code>-h</code></td>
-            <td>Show usage information</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2>Examples</h2>
-
-      <h3>Start on the Authors tab</h3>
-      <pre><code>ruby chronos.rb --authors</code></pre>
-
-      <h3>Auto-refresh mode</h3>
-      <pre><code>ruby chronos.rb --watch</code></pre>
-      <p>
-        Data refreshes automatically every 2 seconds. Useful for monitoring active repositories
-        or during long-running processes.
-      </p>
-
-      <h3>Sort hotspots alphabetically</h3>
-      <pre><code>ruby chronos.rb --sort name</code></pre>
-
-      <h3>Export data as JSON</h3>
-      <pre><code>ruby chronos.rb --json</code></pre>
-      <p>Output can be piped into other tools:</p>
-      <pre><code>ruby chronos.rb --json | jq '.hotspots[:3]'</code></pre>
-
-      <h2>Project Structure</h2>
-      <p>
-        After cloning, the repository is organized as follows:
-      </p>
-      <pre><code>chronos/
-  bin/chronos           # Executable entry point
-  lib/
-    chronos.rb          # Main library entry point
-    chronos/
-      version.rb        # VERSION constant
-      ansi.rb           # ANSI escape codes
-      data.rb           # Data collection & GitData struct
-      cli.rb            # CLI option parsing & JSON export
-      tui.rb            # TUI main loop & keyboard input
-      renderer.rb       # All rendering & display logic
-  dcs/                  # Documentation website
-  LICENSE
-  README.md</code></pre>
-    </div>
-  </main>
+  <hr>
+  <p style="color:#888;font-size:0.85rem;"><a href="index.html">&larr; Back to overview</a></p>
 </body>
 </html>

@@ -7,138 +7,62 @@
   <link rel="stylesheet" href="assets/style.css">
 </head>
 <body>
-  <aside class="sidebar">
-    <div class="sidebar-logo">
-      <a href="index.html">
-        <div class="logo-icon">C</div>
-        <div>
-          <span class="logo-text">Chronos</span>
-          <span class="logo-sub">Git Analytics TUI</span>
-        </div>
-      </a>
-    </div>
-    <nav class="sidebar-nav">
-      <div class="nav-section">
-        <div class="nav-label">Getting Started</div>
-        <a href="index.html"><span class="nav-icon">&#9679;</span> Overview</a>
-        <a href="installation.html"><span class="nav-icon">&#9679;</span> Installation</a>
-        <a href="usage.html"><span class="nav-icon">&#9679;</span> Usage Guide</a>
-      </div>
-      <div class="nav-section">
-        <div class="nav-label">Reference</div>
-        <a href="features.html"><span class="nav-icon">&#9679;</span> Features</a>
-        <a href="contributing.html" class="active"><span class="nav-icon">&#9679;</span> Contributing</a>
-      </div>
-    </nav>
-  </aside>
+  <nav>
+    <strong>Chronos</strong>
+    <a href="index.html">Overview</a>
+    <a href="installation.html">Installation</a>
+    <a href="usage.html">Usage</a>
+    <a href="features.html">Features</a>
+    <a href="contributing.html" class="active">Contributing</a>
+  </nav>
 
-  <main class="main">
-    <div class="content">
-      <h1>Contributing</h1>
-      <p class="lead">Guidelines for contributing to Chronos.</p>
+  <h1>Contributing</h1>
 
-      <h2>Code of Conduct</h2>
-      <p>
-        This project is open and welcoming. All contributors are expected to treat each
-        other with respect and professionalism.
-      </p>
-
-      <h2>Getting Started</h2>
-      <p>
-        Chronos is a small project with a straightforward codebase. The entire application
-        is organized into six focused modules under <code>lib/chronos/</code>:
-      </p>
-
-      <table>
-        <thead>
-          <tr>
-            <th>File</th>
-            <th>Responsibility</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>version.rb</code></td>
-            <td><code>Chronos::VERSION</code> constant</td>
-          </tr>
-          <tr>
-            <td><code>ansi.rb</code></td>
-            <td>ANSI escape code constants for terminal styling</td>
-          </tr>
-          <tr>
-            <td><code>data.rb</code></td>
-            <td><code>GitData</code> struct and <code>collect_git_data</code> method</td>
-          </tr>
-          <tr>
-            <td><code>cli.rb</code></td>
-            <td>Option parsing, usage output, JSON export</td>
-          </tr>
-          <tr>
-            <td><code>tui.rb</code></td>
-            <td>Main TUI loop, keyboard input handling</td>
-          </tr>
-          <tr>
-            <td><code>renderer.rb</code></td>
-            <td>All rendering and layout logic</td>
-          </tr>
-        </tbody>
-      </table>
-
-      <h2>Development Workflow</h2>
-      <ol class="step-list">
-        <li>
-          <strong>Fork the repository</strong> on GitHub.
-        </li>
-        <li>
-          <strong>Create a feature branch</strong>
-          <pre><code>git checkout -b feat/my-feature</code></pre>
-        </li>
-        <li>
-          <strong>Make your changes.</strong> Follow the existing code style:
-          <ul>
-            <li>Use <code>module_function</code> for module-level methods</li>
-            <li>Use <code># frozen_string_literal: true</code> in all Ruby files</li>
-            <li>Use Unicode characters for box-drawing (not ASCII approximations)</li>
-            <li>Keep methods focused and single-purpose</li>
-          </ul>
-        </li>
-        <li>
-          <strong>Test your changes</strong> by running Chronos in a test repository.
-          <pre><code>cd /tmp/test-repo
+  <h2>Development Workflow</h2>
+  <ol>
+    <li>Fork the repository on GitHub.</li>
+    <li>
+      Create a feature branch:
+      <pre><code>git checkout -b feat/my-feature</code></pre>
+    </li>
+    <li>
+      Make your changes. Follow existing conventions:
+      <ul>
+        <li><code># frozen_string_literal: true</code> in all Ruby files</li>
+        <li>Two-space indentation</li>
+        <li>No external dependencies &mdash; stdlib only</li>
+      </ul>
+    </li>
+    <li>
+      Test by running Chronus in a test repo:
+      <pre><code>cd /tmp/test-repo
 ruby /path/to/chronos/chronos.rb</code></pre>
-        </li>
-        <li>
-          <strong>Submit a pull request</strong> with a clear description of what your
-          changes do and why they're needed.
-        </li>
-      </ol>
+    </li>
+    <li>Submit a pull request with a clear description.</li>
+  </ol>
 
-      <h2>Feature Ideas</h2>
-      <p>Some areas we'd love help with:</p>
-      <ul>
-        <li>Commit timeline / activity over time visualization</li>
-        <li>Churn rate (lines added/deleted per file)</li>
-        <li>Author + file cross-reference ("bus factor")</li>
-        <li>Config file support (<code>~/.chronosrc</code>)</li>
-        <li>Gem packaging for <code>gem install chronos</code></li>
-        <li>Unit tests for data collection and rendering</li>
-      </ul>
+  <h2>Project Structure</h2>
+  <table>
+    <tr><th>File</th><th>Responsibility</th></tr>
+    <tr><td><code>lib/chronos/version.rb</code></td><td>VERSION constant</td></tr>
+    <tr><td><code>lib/chronos/ansi.rb</code></td><td>ANSI escape codes</td></tr>
+    <tr><td><code>lib/chronos/data.rb</code></td><td>GitData struct &amp; data collection</td></tr>
+    <tr><td><code>lib/chronos/cli.rb</code></td><td>Option parsing, help, JSON export</td></tr>
+    <tr><td><code>lib/chronos/tui.rb</code></td><td>Main loop &amp; keyboard input</td></tr>
+    <tr><td><code>lib/chronos/renderer.rb</code></td><td>All rendering logic</td></tr>
+  </table>
 
-      <h2>Style Guide</h2>
-      <ul>
-        <li>Indent with two spaces (soft tabs)</li>
-        <li>Prefer single-quoted strings when no interpolation is needed</li>
-        <li>Use <code>&. </code> (safe navigation) for nil checks</li>
-        <li>Keep lines under 100 characters where practical</li>
-        <li>No external dependencies — stdlib only</li>
-      </ul>
+  <h2>Feature Ideas</h2>
+  <ul>
+    <li>Commit timeline / activity over time</li>
+    <li>Churn rate (lines added/deleted)</li>
+    <li>Author + file cross-reference ("bus factor")</li>
+    <li>Config file support</li>
+    <li>Gem packaging</li>
+    <li>Unit tests</li>
+  </ul>
 
-      <h2>Questions?</h2>
-      <p>
-        Open an issue on GitHub or start a discussion. We're happy to help new contributors
-        get started.
-      </p>
-    </div>
-  </main>
+  <hr>
+  <p style="color:#888;font-size:0.85rem;"><a href="index.html">&larr; Back to overview</a></p>
 </body>
 </html>
