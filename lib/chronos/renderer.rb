@@ -21,7 +21,7 @@ module Chronos
 
     content_data(tab, data, scroll, content_lines, sort, out)
 
-    out << "\n#{ANSI::GREY}#{ANSI::BOLD}\u2190#{ANSI::RESET}#{ANSI::GREY} #{ANSI::BOLD}\u2192#{ANSI::RESET}#{ANSI::GREY} tabs  #{ANSI::BOLD}\u2191#{ANSI::RESET}#{ANSI::GREY} #{ANSI::BOLD}\u2193#{ANSI::RESET}#{ANSI::GREY} scroll  q quit#{ANSI::RESET}\n"
+    out << "\n#{ANSI::GREY}TAB next tab  j/k scroll  q quit#{ANSI::RESET}\n"
 
     out
   end

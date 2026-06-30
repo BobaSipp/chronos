@@ -20,14 +20,10 @@ module Chronos
       print ANSI::HOME + frame
 
       case read_key(opts[:watch] ? 2 : nil)
-      when :left
-        current_tab = [current_tab - 1, 0].max
-        scroll = 0
-      when :right
-        current_tab = [current_tab + 1, TAB_LABELS.size - 1].min
+      when :tab
+        current_tab = (current_tab + 1) % TAB_LABELS.size
         scroll = 0
       when :up
-        max_items = tab_item_count(current_tab, data_cache)
         scroll = scroll - 1 if scroll > 0
       when :down
         max_items = tab_item_count(current_tab, data_cache)
@@ -57,21 +53,11 @@ module Chronos
       ch = STDIN.getch
     end
 
+    return :tab if ch == "\t"
+    return :up if ch == "k"
+    return :down if ch == "j"
     return :quit if ch == "q"
-    return decode_escape if ch == "\e"
     :unknown
-  end
-
-  def decode_escape
-    sleep 0.05
-    seq = STDIN.getch.to_s + STDIN.getch.to_s
-    case seq
-    when "[A" then :up
-    when "[B" then :down
-    when "[C" then :right
-    when "[D" then :left
-    else :unknown
-    end
   end
 
   def tab_item_count(tab, data)

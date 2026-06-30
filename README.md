@@ -29,17 +29,17 @@ Hotspots
   4. tests/main_test.rb    5
   5. src/cli.rb            3
 
-← → tabs  ↑ ↓ scroll  q quit
+   TAB next tab  j/k scroll  q quit
 ```
 
 Three tabs: **Hotspots** (most-changed files), **Info** (repo overview + file-type
-breakdown), and **Authors** (top contributors). Navigate with arrow keys, scroll
-through long lists, quit with `q`.
+breakdown), and **Authors** (top contributors). Press `TAB` to cycle tabs, `j`/`k`
+to scroll, `q` to quit.
 
 ## Features
 
-- **Three tabs** — Hotspots, Info, Authors with keyboard tab switching
-- **Scrollable lists** — arrow keys navigate long lists
+- **Three tabs** — Hotspots, Info, Authors with Tab key switching
+- **Scrollable lists** — j/k keys navigate long lists
 - **Auto-refresh** (`--watch`) — re-collects data every 2 seconds
 - **JSON export** (`--json`) — outputs all data as JSON for scripting
 - **Sort options** — `--sort count` (default) or `--sort name`
@@ -64,8 +64,8 @@ Options:
 
 | Key | Action |
 |-----|--------|
-| `←` / `→` | Switch tabs |
-| `↑` / `↓` | Scroll through lists |
+| `Tab` | Next tab |
+| `j` / `k` | Scroll down / up |
 | `q` | Quit |
 
 ## Project Structure
