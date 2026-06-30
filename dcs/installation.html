@@ -27,11 +27,13 @@
     <p>No external gems are required. Chronos uses only Ruby's standard library.</p>
 
     <h2>Install via GitHub Packages</h2>
-    <pre><code>gem sources --add https://rubygems.pkg.github.com/BobaSipp
-gem install chronos</code></pre>
-    <p>Requires a GitHub personal access token with <code>read:packages</code> scope in <code>~/.gem/credentials</code>:</p>
+    <p>First set up authentication in <code>~/.gem/credentials</code>:</p>
     <pre><code>---
-:github: Bearer YOUR_TOKEN</code></pre>
+:github: Bearer YOUR_GITHUB_TOKEN</code></pre>
+    <p>Then add the source and install:</p>
+    <pre><code>gem sources --add https://YOUR_USERNAME:YOUR_GITHUB_TOKEN@rubygems.pkg.github.com/BobaSipp/
+gem install chronos</code></pre>
+    <p>Requires a GitHub <a href="https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens">personal access token (classic)</a> with <code>read:packages</code> scope.</p>
 
     <h2>Build from source</h2>
     <ol>

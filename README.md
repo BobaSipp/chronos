@@ -10,19 +10,18 @@ repository's commit activity. No external dependencies, no bundler, no fuss.
 ### Via GitHub Packages
 
 ```bash
+# Authenticate (create ~/.gem/credentials)
+---
+:github: Bearer YOUR_GITHUB_TOKEN
+
 # Add GitHub Packages as a gem source
-gem sources --add https://rubygems.pkg.github.com/BobaSipp
+gem sources --add https://YOUR_USERNAME:YOUR_GITHUB_TOKEN@rubygems.pkg.github.com/BobaSipp/
 
 # Install
 gem install chronos
 ```
 
-> Requires a GitHub [personal access token](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) with `read:packages` scope. Create `~/.gem/credentials`:
-> ```
-> ---
-> :github: Bearer YOUR_TOKEN
-> ```
-> Then `chmod 0600 ~/.gem/credentials`.
+> Requires a GitHub [personal access token (classic)](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens) with `read:packages` scope.
 
 ### From source
 
@@ -122,6 +121,10 @@ Chronos runs `git log --name-only --oneline` to parse commit history, groups
 changed files, and ranks them by frequency. Author stats come from
 `git log --format=%an`. All rendering is done with raw ANSI escape codes.
 The application is organized into focused modules under `lib/chronos/`.
+
+## Documentation
+
+Full documentation is available at **https://BobaSipp.github.io/chronos/**
 
 ## License
 

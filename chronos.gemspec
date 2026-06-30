@@ -14,5 +14,8 @@ Gem::Specification.new do |s|
   s.executables = ["chronos"]
 
   s.required_ruby_version = ">= 2.7"
-  s.metadata["source_code_uri"] = "https://github.com/BobaSipp/chronos"
+  s.metadata = {
+    "source_code_uri" => "https://github.com/BobaSipp/chronos",
+    "github_repo" => "ssh://github.com/BobaSipp/chronos"
+  }
 end
