@@ -46,26 +46,32 @@ module Chronos
   end
 
   def read_key(timeout = nil)
+    ch = nil
+
     if timeout
-      ready = IO.select([STDIN], nil, nil, timeout)
-      return :timeout unless ready
+      thr = Thread.new { ch = STDIN.getch }
+      thr.join(timeout)
+      thr.kill
+      return :timeout if ch.nil?
+    else
+      ch = STDIN.getch
     end
 
-    c = STDIN.getch
-    return :quit if c == "q"
-
-    if c == "\e" && IO.select([STDIN], nil, nil, 0.1)
-      seq = STDIN.getch
-      return :unknown unless seq == "["
-
-      case STDIN.getch
-      when "A" then return :up
-      when "B" then return :down
-      when "D" then return :left
-      when "C" then return :right
-      end
-    end
+    return :quit if ch == "q"
+    return decode_escape if ch == "\e"
     :unknown
+  end
+
+  def decode_escape
+    sleep 0.05
+    seq = STDIN.getch.to_s + STDIN.getch.to_s
+    case seq
+    when "[A" then :up
+    when "[B" then :down
+    when "[C" then :right
+    when "[D" then :left
+    else :unknown
+    end
   end
 
   def tab_item_count(tab, data)
